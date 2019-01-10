@@ -1,0 +1,69 @@
+<!doctype html>
+<head>
+<title>Hello from Flask</title>
+</head>
+
+<body>
+
+ <form method="POST" action="">
+     What is your name? <input type="text" name="name">
+     <input type="submit" name="submit" value="Submit">
+ </form>
+
+<p>&nbsp;</p>
+
+
+ <form action="game" method="POST">
+  Please provide your choice:
+  <input type="text" name="player_input" value="">
+  <input type="submit" value="Submit">
+</form>
+
+<table style="margin-left: auto; margin-right: auto;" cellpadding="5">
+<tbody>
+<tr>
+<td>rock</td>
+<td>spok</td>
+<td>paper</td>
+<td>scissors</td>
+<td>lizard</td>
+</tr>
+</tbody>
+</table>
+<table style="float: right; width: 121px;" cellpadding="5">
+<tbody>
+<tr>
+<td style="width: 158px; text-align: center;"><strong>SCORE</strong></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="float: right; width: 120px;" cellpadding="5">
+<tbody>
+<tr style="height: 20px;">
+<td style="width: 35px; height: 20px;">{{ name }}</td>
+<td style="width: 61px; height: 20px; text-align: center;">IA</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 35px; height: 18px;">&nbsp;</td>
+<td style="width: 61px; height: 18px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 565px; height: 232px;">
+<tbody>
+<tr>
+<td style="width: 555px;">rules</td>
+</tr>
+<tr>
+<td style="width: 555px;">output</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</body>
+</html>
