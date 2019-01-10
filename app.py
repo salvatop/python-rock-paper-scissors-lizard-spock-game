@@ -48,37 +48,35 @@ def play(player_choice):
     result = (player_number - computer_choice) % 5
 
     if result >= 3 and result <= 4:
-        print("IA wins!")
         SCORE["IA"] += 1
-        print("score:" + str(SCORE))
-        print()
+        print("IA wins!")
+        return "IA wins!"
 
     elif result >= 1 and result <= 2:
-        print("Player wins!")
         SCORE["player"] += 1
-        print("score:" + str(SCORE))
-        print()
+        print("Player wins!")
+        return "Player wins!"
 
     else:
         print("It's a Tie!")
-        print()
+        return "It's a Tie!"
 
 
 @app.route('/', methods=['GET', 'POST'])
-def game():
-    #player_input = request.form['player_input']
-    #game.play_a_game(player_input)
+def player_input():
+
     name = "Player"
+
     if request.method == 'POST' and 'name' in request.form:
         name = request.form['name']
 
-    return render_template('index.html', name=name)
+    score = None
 
+    choice = request.args.get('choice')
+    if choice:
+       score = play(choice)
 
-@app.route('/<choice>', methods=['GET', 'POST'])
-def player_input():
-    choice = request.form['player_input']
-    return render_template('index.html', 'play',choice)
+    return render_template('index.html', name=name, choice=choice, score=score)
 
 
 if __name__ == '__main__':
