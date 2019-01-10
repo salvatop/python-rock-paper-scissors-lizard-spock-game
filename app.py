@@ -5,9 +5,11 @@ app = Flask(__name__, template_folder='templates')
 
 SCORE = {"player": 0, "IA": 0}
 IA_CHOICE = {"IA" : ""}
+PLAYER_NAME = {"player" : ""}
 
 
 def name_to_number(name):
+    number = None
     if name == "rock":
         number = 0
     elif name == "spock":
@@ -22,6 +24,7 @@ def name_to_number(name):
 
 
 def number_to_name(number):
+    name = None
     if number == 0:
         name = "rock"
     elif number == 1:
@@ -39,8 +42,7 @@ def play(player_choice):
     player_number = name_to_number(player_choice)
 
     comp_number = random.randrange(4)
-    computer_choice = number_to_name(comp_number)
-    IA_CHOICE["IA"] = computer_choice
+    IA_CHOICE["IA"] = number_to_name(comp_number)
 
     # using modulo to determine the winner
     result = (player_number - comp_number) % 5
@@ -57,21 +59,22 @@ def play(player_choice):
         return "It's a Tie!"
 
 
-@app.route('/', methods=['GET', 'POST'])
-def player_input():
-
-    name = "Player"
-
+@app.route('/', methods=['POST'])
+def change_name():
+    name = None
     if request.method == 'POST' and 'name' in request.form:
         name = request.form['name']
+        PLAYER_NAME["player"] = name
+    return render_template('index.html', score=SCORE, ia="", name=name)
 
+
+@app.route('/', methods=['GET'])
+def play_a_game():
     winner = ""
-
     choice = request.args.get('choice')
     if choice:
         winner = play(choice)
-
-    return render_template('index.html', name=name, choice=choice, winner=winner, score=SCORE, ia=IA_CHOICE)
+    return render_template('index.html', name=PLAYER_NAME, choice=choice, winner=winner, score=SCORE, ia=IA_CHOICE)
 
 
 if __name__ == '__main__':

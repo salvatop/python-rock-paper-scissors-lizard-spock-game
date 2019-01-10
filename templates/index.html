@@ -6,7 +6,7 @@
 <body>
 
  <form method="POST" action="">
-     What is your name? <input type="text" name="name">
+     What is your nae? <input type="text" name="name">
      <input type="submit" name="submit" value="Submit">
  </form>
 
@@ -17,11 +17,11 @@
 <table style="margin-left: auto; margin-right: auto;" cellpadding="5">
 <tbody>
 <tr>
-<td><a href={{ url_for('player_input', choice="rock") }}> rock </a></td>
-<td><a href={{ url_for('player_input', choice="spock") }}> spock </a></td>
-<td><a href={{ url_for('player_input', choice="paper") }}> paper </a></td>
-<td><a href={{ url_for('player_input', choice="scissors") }}> scissors </a></td>
-<td><a href={{ url_for('player_input', choice="lizard") }}> lizard</a></td>
+<td><a href={{ url_for('play_a_game', choice="rock") }}> rock </a></td>
+<td><a href={{ url_for('play_a_game', choice="spock") }}> spock </a></td>
+<td><a href={{ url_for('play_a_game', choice="paper") }}> paper </a></td>
+<td><a href={{ url_for('play_a_game', choice="scissors") }}> scissors </a></td>
+<td><a href={{ url_for('play_a_game', choice="lizard") }}> lizard</a></td>
 </tr>
 </tbody>
 </table>
@@ -39,7 +39,7 @@
 <table style="float: right; width: 120px;" cellpadding="5">
 <tbody>
 <tr style="height: 20px;">
-<td style="width: 35px; height: 20px;">{{ name }}</td>
+<td style="width: 35px; height: 20px;">{{ name['player'] }}</td>
 <td style="width: 61px; height: 20px; text-align: center;">IA</td>
 </tr>
 <tr style="height: 18px;">
@@ -52,7 +52,7 @@
 <table style="width: 565px; height: 232px;">
 <tbody>
 <tr>
-<td style="width: 555px;">{{ name }} chosed: {{choice}}</td>
+<td style="width: 555px;">{{ name['player'] }} chosed: {{choice}}</td>
 </tr>
 <tr>
 <td style="width: 555px;">IA chosed: {{ia['IA']}}</td>
