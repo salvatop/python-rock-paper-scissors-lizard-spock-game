@@ -18,7 +18,7 @@
 <tbody>
 <tr>
 <td><a href={{ url_for('player_input', choice="rock") }}> rock </a></td>
-<td><a href={{ url_for('player_input', choice="spok") }}> spok </a></td>
+<td><a href={{ url_for('player_input', choice="spock") }}> spock </a></td>
 <td><a href={{ url_for('player_input', choice="paper") }}> paper </a></td>
 <td><a href={{ url_for('player_input', choice="scissors") }}> scissors </a></td>
 <td><a href={{ url_for('player_input', choice="lizard") }}> lizard</a></td>
@@ -52,10 +52,10 @@
 <table style="width: 565px; height: 232px;">
 <tbody>
 <tr>
-<td style="width: 555px;">rules</td>
+<td style="width: 555px;">{{ name }} chosed: {{choice}}</td>
 </tr>
 <tr>
-<td style="width: 555px;">output</td>
+<td style="width: 555px;">winner is: {{winner}}</td>
 </tr>
 </tbody>
 </table>
