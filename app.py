@@ -4,7 +4,7 @@ import random
 app = Flask(__name__, template_folder='templates')
 
 SCORE = {"player": 0, "IA": 0}
-IA = {"ia" : None}
+IA_CHOICE = {"IA" : ""}
 
 
 def name_to_number(name):
@@ -40,7 +40,7 @@ def play(player_choice):
 
     comp_number = random.randrange(4)
     computer_choice = number_to_name(comp_number)
-    IA["ia"] = computer_choice
+    IA_CHOICE["IA"] = computer_choice
 
     # using modulo to determine the winner
     result = (player_number - comp_number) % 5
@@ -65,13 +65,13 @@ def player_input():
     if request.method == 'POST' and 'name' in request.form:
         name = request.form['name']
 
-    winner = None
+    winner = ""
 
     choice = request.args.get('choice')
     if choice:
         winner = play(choice)
 
-    return render_template('index.html', name=name, choice=choice, winner=winner, score=SCORE, ia=IA)
+    return render_template('index.html', name=name, choice=choice, winner=winner, score=SCORE, ia=IA_CHOICE)
 
 
 if __name__ == '__main__':
