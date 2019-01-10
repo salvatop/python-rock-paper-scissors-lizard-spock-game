@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-<title>Hello from Flask</title>
+<title>Rock Paper Scissors Lizard Spock</title>
 </head>
 
 <body>
@@ -13,16 +13,11 @@
 <p>&nbsp;</p>
 
 
- <form action="game" method="POST">
-  Please provide your choice:
-  <input type="text" name="player_input" value="">
-  <input type="submit" value="Submit">
-</form>
 
 <table style="margin-left: auto; margin-right: auto;" cellpadding="5">
 <tbody>
 <tr>
-<td>rock</td>
+<td><a href={{ url_for('player_input', choice=rock) }}> rock </a></td>
 <td>spok</td>
 <td>paper</td>
 <td>scissors</td>
@@ -30,6 +25,9 @@
 </tr>
 </tbody>
 </table>
+
+
+
 <table style="float: right; width: 121px;" cellpadding="5">
 <tbody>
 <tr>

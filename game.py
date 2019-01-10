@@ -1,26 +1,3 @@
-# Rock-paper-scissors-lizard-Spock
-# The key idea of this program is to equate the strings
-# "rock", "paper", "scissors", "lizard", "Spock" to numbers
-# as follows:
-#
-# 0 - rock
-# 1 - Spock
-# 2 - paper
-# 3 - lizard
-# 4 - scissors
-
-# Scissors cuts Paper
-# Paper covers Rock
-# Rock crushes Lizard
-# Lizard poisons Spock
-# Spock smashes Scissors
-# Scissors decapitates Lizard
-# Lizard eats Paper
-# Paper disproves Spock
-# Spock vaporizes Rock
-# (and as it always has) Rock crushes Scissors
-
-
 import random
 
 SCORE = {"player": 0, "IA": 0}
@@ -86,8 +63,33 @@ def play_a_game(player_choice):
         print()
 
 
-play_a_game("rock")
-play_a_game("Spock")
-play_a_game("paper")
-play_a_game("lizard")
-play_a_game("scissors")
+
+#play_a_game("rock")
+#play_a_game("Spock")
+#play_a_game("paper")
+#play_a_game("lizard")
+#play_a_game("scissors")
+
+
+# Rock-paper-scissors-lizard-Spock
+# The key idea of this program is to equate the strings
+# "rock", "paper", "scissors", "lizard", "Spock" to numbers
+# as follows:
+#
+# 0 - rock
+# 1 - Spock
+# 2 - paper
+# 3 - lizard
+# 4 - scissors
+
+# Scissors cuts Paper
+# Paper covers Rock
+# Rock crushes Lizard
+# Lizard poisons Spock
+# Spock smashes Scissors
+# Scissors decapitates Lizard
+# Lizard eats Paper
+# Paper disproves Spock
+# Spock vaporizes Rock
+# (and as it always has) Rock crushes Scissors
+
