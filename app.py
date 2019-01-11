@@ -4,8 +4,8 @@ import random
 app = Flask(__name__, template_folder='templates')
 
 SCORE = {"player": 0, "IA": 0}
-IA_CHOICE = {"IA" : ""}
-PLAYER_NAME = {"player" : "Player"}
+IA_CHOICE = {"IA": ""}
+PLAYER_NAME = {"player": "Player"}
 
 
 def name_to_number(name):
