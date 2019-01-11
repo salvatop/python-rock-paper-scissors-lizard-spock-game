@@ -70,7 +70,7 @@ def change_name():
     if request.method == 'POST' and 'name' in request.form:
         name = request.form['name']
         PLAYER_NAME["player"] = name
-    return render_template('index.html', score=SCORE, ia="", name=PLAYER_NAME)
+    return render_template('index.html', score=SCORE, ia_choice="", name=PLAYER_NAME)
 
 
 @app.route('/play', methods=['GET'])
@@ -79,14 +79,14 @@ def play_a_game():
     choice = request.args.get('choice')
     if choice:
         winner = play(choice)
-    return render_template('index.html', name=PLAYER_NAME, choice=choice, winner=winner, score=SCORE, ia=IA_CHOICE)
+    return render_template('index.html', name=PLAYER_NAME, choice=choice, winner=winner, score=SCORE, ia_choice=IA_CHOICE)
 
 
 @app.route('/restart')
 def restart():
     SCORE["player"] = 0
     SCORE["IA"] = 0
-    return render_template('index.html', score=SCORE, ia="", name=PLAYER_NAME)
+    return render_template('index.html', score=SCORE, ia_choice="", name=PLAYER_NAME)
 
 
 if __name__ == '__main__':
