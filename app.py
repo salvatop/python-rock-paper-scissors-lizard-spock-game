@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import random
 
 app = Flask(__name__, template_folder='templates')
@@ -59,7 +59,12 @@ def play(player_choice):
         return "It's a Tie!"
 
 
-@app.route('/', methods=['POST'])
+@app.route('/')
+def welcome():
+    return redirect("/play")
+
+
+@app.route('/name', methods=['POST'])
 def change_name():
     name = None
     if request.method == 'POST' and 'name' in request.form:
@@ -68,7 +73,7 @@ def change_name():
     return render_template('index.html', score=SCORE, ia="", name=PLAYER_NAME)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/play', methods=['GET'])
 def play_a_game():
     winner = ""
     choice = request.args.get('choice')
@@ -77,7 +82,7 @@ def play_a_game():
     return render_template('index.html', name=PLAYER_NAME, choice=choice, winner=winner, score=SCORE, ia=IA_CHOICE)
 
 
-@app.route('/')
+@app.route('/restart')
 def restart():
     SCORE["player"] = 0
     SCORE["IA"] = 0
