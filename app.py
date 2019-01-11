@@ -53,7 +53,7 @@ def play(player_choice):
 
     elif result >= 1 and result <= 2:
         SCORE["player"] += 1
-        return "Player wins!"
+        return PLAYER_NAME['player'] + " wins!"
 
     else:
         return "It's a Tie!"
