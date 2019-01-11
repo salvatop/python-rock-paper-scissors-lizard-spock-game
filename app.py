@@ -5,7 +5,7 @@ app = Flask(__name__, template_folder='templates')
 
 SCORE = {"player": 0, "IA": 0}
 IA_CHOICE = {"IA" : ""}
-PLAYER_NAME = {"player" : ""}
+PLAYER_NAME = {"player" : "Player"}
 
 
 def name_to_number(name):
@@ -65,7 +65,7 @@ def change_name():
     if request.method == 'POST' and 'name' in request.form:
         name = request.form['name']
         PLAYER_NAME["player"] = name
-    return render_template('index.html', score=SCORE, ia="", name=name)
+    return render_template('index.html', score=SCORE, ia="", name=PLAYER_NAME)
 
 
 @app.route('/', methods=['GET'])
@@ -75,6 +75,13 @@ def play_a_game():
     if choice:
         winner = play(choice)
     return render_template('index.html', name=PLAYER_NAME, choice=choice, winner=winner, score=SCORE, ia=IA_CHOICE)
+
+
+@app.route('/')
+def restart():
+    SCORE["player"] = 0
+    SCORE["IA"] = 0
+    return render_template('index.html', score=SCORE, ia="", name=PLAYER_NAME)
 
 
 if __name__ == '__main__':
