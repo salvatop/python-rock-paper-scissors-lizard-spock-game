@@ -66,7 +66,6 @@ def welcome():
 
 @app.route('/name', methods=['POST'])
 def change_name():
-    name = None
     if request.method == 'POST' and 'name' in request.form:
         name = request.form['name']
         PLAYER_NAME["player"] = name
