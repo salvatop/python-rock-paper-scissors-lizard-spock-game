@@ -75,10 +75,10 @@ def change_name():
 @app.route('/play', methods=['GET'])
 def play_a_game():
     winner = ""
-    choice = request.args.get('choice')
+    choice = request.args.get('player_choice')
     if choice:
         winner = play(choice)
-    return render_template('index.html', name=PLAYER_NAME, choice=choice, winner=winner, score=SCORE, ia_choice=IA_CHOICE)
+    return render_template('index.html', name=PLAYER_NAME, player_choice=choice, winner=winner, score=SCORE, ia_choice=IA_CHOICE)
 
 
 @app.route('/restart')
